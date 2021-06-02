@@ -1,0 +1,11 @@
+/* 나눔펜 : 'Nanum Pen Script', cursive */
+@import url(https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap);
+
+/* 나눔스퀘어(300, 400, 700, 800) : font-family: 'NanumSquare', sans-serif  */
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+body {
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
