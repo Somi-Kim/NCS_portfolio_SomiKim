@@ -1,8 +1,3 @@
-// https://stackoverflow.com/questions/7035331/prevent-automatic-browser-scroll-on-refresh/18633915#18633915
-// default scroll to 0, 0
-$(window).on('beforeunload', function() {
-});
-
 $(document).ready(function() {
     // 스크롤 버벅거림 방지용 로딩
     is_loading = true;
@@ -77,7 +72,6 @@ $(document).ready(function() {
 
     // window size resize : fit section top
     $(window).resize(function() {
-        // console.log("window resized");
         $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top});
     });
 
@@ -486,7 +480,7 @@ $(document).ready(function() {
         is_modal = true;
         
         dmockup_index = $(this).index() - 2;
-        $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.png`);
+        $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.jpg`);
         $(".mockup_origin img").attr("src", `image/mockup/origin/mockup${dmockup_index + 1}.jpg`);
 
         $("#mockup_modal").css({"display": "block"});
@@ -530,7 +524,7 @@ $(document).ready(function() {
             $(".mockuped img").attr("src", "");
             $(".mockup_origin img").attr("src", "");
 
-            $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.png`);
+            $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.jpg`);
             $(".mockup_origin img").attr("src", `image/mockup/origin/mockup${dmockup_index + 1}.jpg`);
         }
     });
@@ -544,7 +538,7 @@ $(document).ready(function() {
             $(".mockuped img").attr("src", "");
             $(".mockup_origin img").attr("src", "");
             
-            $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.png`);
+            $(".mockuped img").attr("src", `image/mockup/mockup${dmockup_index + 1}.jpg`);
             $(".mockup_origin img").attr("src", `image/mockup/origin/mockup${dmockup_index + 1}.jpg`);
         }
     });
