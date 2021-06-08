@@ -445,7 +445,7 @@ section {
     cursor: pointer;
 }
 .respons2>.rshowcase:hover {background: rgba(200, 200, 200, 1);}
-.respons2 img {width: 200%; margin-left: -50%;}
+.respons2 img {width: 100%;}
 .respons2>.rdesc {
     position: absolute;
     right: 50px;
