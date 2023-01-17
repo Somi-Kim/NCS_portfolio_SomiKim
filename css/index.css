@@ -4,6 +4,8 @@ html, body, #wrap {width: 100%; height: 100%;}
 /* hide scroll bar */
 html {overflow: hidden;}
 
+/* ____________________________________________________PC */
+
 /*                 header                */
 header {
     position: fixed;
@@ -51,7 +53,7 @@ header {
     box-sizing: border-box;
     position: fixed; 
     top: 5px; 
-    right: 200px;
+    right: 125px;
     width: 40px;
     height: 40px;
     font-size: 40px;
@@ -63,7 +65,7 @@ header {
 .go_down {
     position: fixed; 
     top: 5px; 
-    right: 150px;
+    right: 75px;
     width: 40px;
     height: 40px;
     font-size: 40px;
@@ -76,7 +78,7 @@ header {
 .logo {
     position: fixed; 
     top: 5px; 
-    right: 65px;
+    right: 12px;
     width: 40px;
     height: 40px;
     background: url(../image/logo.png) no-repeat center center;
@@ -115,7 +117,7 @@ header {
 .visual_scroll {
     position: absolute;
     top: 65px;
-    right: 100px;
+    right: 75px;
     font-size: 1vw;
     font-weight: 900;
     text-align: center;
@@ -135,10 +137,10 @@ header {
     font-size: 10vh;
     font-weight: 900;
     text-align: center;
-    word-spacing: 1000%;
     color: #333;
-    margin-top: 40vh;
+    margin-top: 45vh;
 }
+.visual_text>p {display: inline-block;}
 .visual_godown {
     font-size: 3vh;    
     text-align: center; 
@@ -237,80 +239,6 @@ section {
     margin-bottom: 1vw;
 }
 /* https://codemyui.com/comicbook-inspired-hand-drawn-borders/ */
-.gauge {
-    display: inline-block;
-    position: relative;
-    width: 27vw;
-    height: 5vw;
-}
-.gauge>li:nth-child(1) {
-    float: left; 
-    width: 7vw; 
-    font-size: 1vw;
-    line-height: 5vw;
-}
-.gauge>li:not(:nth-child(1)) {
-    box-sizing: border-box;
-    position: relative;
-    float: left; 
-    border-radius: 50%;
-    border: 1px solid #999;
-    background: transparent;
-    overflow: hidden;
-}
-.gauge>li:nth-child(2) {width: 1vw; height: 1vw; margin: 2vw 1vw;}
-.gauge>li:nth-child(3) {width: 1.5vw; height: 1.5vw; margin: 1.75vw 1vw;}
-.gauge>li:nth-child(4) {width: 2vw; height: 2vw; margin: 1.5vw 1vw;}
-.gauge>li:nth-child(5) {width: 2.5vw; height: 2.5vw; margin: 1.25vw 1vw;}
-.gauge>li:nth-child(6) {width: 3vw; height: 3vw; margin: 1vw;}
-.gauge>li>span {
-    box-sizing: border-box;
-    display: inline-block; 
-    position: absolute;
-    top: 0;
-    left: 0; 
-}
-/* 각 span당 width 10% = 전체 2% */
-    /* html gauge :: 80% */
-.gauge_html>ul>li:nth-child(2)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_html>ul>li:nth-child(3)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_html>ul>li:nth-child(4)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_html>ul>li:nth-child(5)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_html>ul>li:nth-child(6)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-
-    /* css gauge :: 70% */
-.gauge_css>ul>li:nth-child(2)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_css>ul>li:nth-child(3)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_css>ul>li:nth-child(4)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_css>ul>li:nth-child(5)>span {width: 50%; height: 100%; border-radius: 0%;} /* 10% */
-.gauge_css>ul>li:nth-child(6)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-
-    /* jquery gauge :: 60% */
-.gauge_jquery>ul>li:nth-child(2)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_jquery>ul>li:nth-child(3)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_jquery>ul>li:nth-child(4)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_jquery>ul>li:nth-child(5)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_jquery>ul>li:nth-child(6)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-
-    /* javascript gauge :: 30% */
-.gauge_js>ul>li:nth-child(2)>span {width: 100%; height: 100%; border-radius: 50%;} /* 20% */
-.gauge_js>ul>li:nth-child(3)>span {width: 50%; height: 100%; border-radius: 0%;} /* 10% */
-.gauge_js>ul>li:nth-child(4)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_js>ul>li:nth-child(5)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_js>ul>li:nth-child(6)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-
-    /* sass gauge :: 0% */
-.gauge_sass>ul>li:nth-child(2)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_sass>ul>li:nth-child(3)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_sass>ul>li:nth-child(4)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_sass>ul>li:nth-child(5)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-.gauge_sass>ul>li:nth-child(6)>span {width: 0%; height: 0%; border-radius: 0%;} /* 0% */
-                
-.gauge_html>ul>li>span {background: #f16529;}
-.gauge_css>ul>li>span {background: #254de4;}
-.gauge_jquery>ul>li>span {background: #0769ad;}
-.gauge_js>ul>li>span {background: #f0db4f;}
-.gauge_sass>ul>li>span {background: #cc6699;}
 
 
     /* responsive */
@@ -1207,4 +1135,72 @@ address {line-height: 50px; text-decoration: none;}
 }
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ____________________________________________________Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    body{background:red;}
+    /*                 header                 */
+        /* menu show/hide button */
+    .gnb>ul>li {font-size: 1.8vw;}
+    .menu_pop {display: none;}
+
+    /*                 visual                 */
+    .visual_scroll {
+        right: 50px;
+        font-size: 1.7vw;
+        line-height: 2.3vw;
+    }
+    .visual_text {margin-top: 35vh;}
+    .visual_text>p {display: block;}
+
+    /*                 visual                 */
+    /* section>div {padding-top: 50px;} */
+
+    /*                 footer                 */
+    footer {bottom: -15px;}
+    footer.fhover_dis {pointer-events: none;}
+    footer>span {display: none;}
+}
+
+
+
+
+
+
+
+
+
+
+/* ____________________________________________________Mobile */
+@media screen and (max-width: 767px) {
+    
+    /*                 header                 */
+        /* menu show/hide button */
+        .menu_pop {display: none;}
+
+    /*                 visual                 */
+    nav>ul {display: none;}
+    .visual_scroll {
+        right: 50px;
+        font-size: 4vw;
+        line-height: 5vw;
+    }
+    .visual_text {font-size: 10vw; margin-top: 35vh;}
+    .visual_text>p {display: block;}
+
+    /* footer */
+    footer {}
+
+    footer>span {display: none;}
 }

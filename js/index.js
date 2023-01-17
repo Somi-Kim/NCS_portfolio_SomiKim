@@ -1,10 +1,11 @@
 $(document).ready(function() {
     // 스크롤 버벅거림 방지용 로딩
-    is_loading = true;
-    $("html, body").stop(true, true).animate({scrollTop: document.body.scrollHeight, scrollLeft: 0}, 1400);
-    setTimeout(function() {
-        $("html, body").stop(true, true).animate({scrollTop: 0, scrollLeft: 0}, 1500);
-    }, 1500);
+    // is_loading = true;
+    is_loading = false;
+    // $("html, body").stop(true, true).animate({scrollTop: document.body.scrollHeight, scrollLeft: 0}, 1400);
+    // setTimeout(function() {
+    //     $("html, body").stop(true, true).animate({scrollTop: 0, scrollLeft: 0}, 1500);
+    // }, 1500);
 
     // _______________________________________________header
     // gnb 메뉴 보이기/숨기기
@@ -22,24 +23,30 @@ $(document).ready(function() {
             gnb_open = true;
         }
     });
-
-    // 스크롤이 내려가면 gnb 숨기기
+    
+    // 스크롤이 내려가면 gnb 숨기기 (only for "PC")
     $(window).scroll(function() {
-        if($(this).scrollTop() > 0 && gnb_open) {
-            $(".gnb").stop(true, true).slideUp();
-            $(".menu_pop").stop(true, true).animate({"top":"0px"});
-            $(".menu_pop>span").text("arrow_drop_down");
-            gnb_open = false;
-        } else if ($(this).scrollTop() <= 0 && !gnb_open) {
-            $(".gnb").stop(true, true).slideDown();
-            $(".menu_pop").stop(true, true).animate({"top":"50px"});
-            $(".menu_pop>span").text("arrow_drop_up");
-            gnb_open = true;
+        if($(this).innerWidth() >= 1200) {
+            let win_scrTop = $(this).scrollTop();
+    
+            if(win_scrTop > 0 && gnb_open) {
+                $(".gnb").stop(true, true).slideUp();
+                $(".menu_pop").stop(true, true).animate({"top":"0px"});
+                $(".menu_pop>span").text("arrow_drop_down");
+                gnb_open = false;
+            } else if (win_scrTop <= 0 && !gnb_open) {
+                $(".gnb").stop(true, true).slideDown();
+                $(".menu_pop").stop(true, true).animate({"top":"50px"});
+                $(".menu_pop>span").text("arrow_drop_up");
+                gnb_open = true;
+            }
         }
     });
 
+
     // gnb click시 scroll animation
-    let sec_count = 0;
+        // sec_count initializing
+    let sec_count = 0; // which section
     $(".gnb>ul>li>a").click(function(event) {
         event.preventDefault(); // prevent a tag move for scroll animation
         
@@ -47,18 +54,16 @@ $(document).ready(function() {
         $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top});
     });
 
+
+
     // up/down button 클릭 시 세션 이동 
     // (visual에서 버튼을 눌러 이동하라 알려주기)
     $(".go_up").click(function() {
-        if(sec_count > 0) {
-            sec_count -= 1;
-        }
+        if(sec_count > 0) {sec_count -= 1;}
         $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top});
     });
     $(".go_down").click(function() {
-        if(sec_count < 5) {
-            sec_count += 1;
-        }
+        if(sec_count < 5) {sec_count += 1;}
         $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top});
     });
 
@@ -81,9 +86,9 @@ $(document).ready(function() {
         // visual
         // loading 페이지가 사라질 때 visual text의 애니메이션 시작
     setTimeout(function() {
-        $('.visual_text').delayText({
-            time: 2500
-        });
+        // $('.visual_text').delayText({
+        //     time: 2500
+        // });
         $(".visual_godown").animate({"opacity": "1"}, 3000);
         $("#loading").children().animate({"opacity": "0"}, 300, function() {
             $("#loading").children().css({"display": "none"});
@@ -110,22 +115,18 @@ $(document).ready(function() {
             delta = E.wheelDelta;
         };
 
-        if(delta < 0 && is_scrolled && !is_modal && !is_loading){ // 마우스 휠을 아래로 내렸을 경우
-            if(sec_count < 5) {
-                is_scrolled = false;
-                sec_count += 1;
-                $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top}, function() {
-                    is_scrolled = true;
-                });
-            }
-        } else if(delta > 0 && is_scrolled && !is_modal && !is_loading){ // 마우스 휠을 위로 올렸을 경우
-            if(sec_count > 0) {
-                is_scrolled = false;
-                sec_count -= 1;
-                $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top}, function() {
-                    is_scrolled = true;
-                });
-            }
+        if(delta < 0 && is_scrolled && !is_modal && !is_loading && sec_count < 5){ // 마우스 휠을 아래로 내렸을 경우
+            is_scrolled = false;
+            sec_count += 1;
+            $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top}, function() {
+                is_scrolled = true;
+            });
+        } else if(delta > 0 && is_scrolled && !is_modal && !is_loading && sec_count > 0){ // 마우스 휠을 위로 올렸을 경우
+            is_scrolled = false;
+            sec_count -= 1;
+            $("html, body").stop(true, true).animate({scrollTop: $("section>div").eq(sec_count).offset().top}, function() {
+                is_scrolled = true;
+            });
         };
     });
     // 출처: https://recoveryman.tistory.com/121 [회복맨 블로그]
